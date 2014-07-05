@@ -9,6 +9,7 @@
     	<action name="login" class="org.namiya.action.LoginAction">
     		<result name="success">/searchFrom.jsp</result>
     		<result name="login">/login.jsp</result>
+    		<result name="input">/login.jsp</result>
     	</action>
     </package>
    

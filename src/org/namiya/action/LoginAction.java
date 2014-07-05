@@ -1,12 +1,27 @@
 package org.namiya.action;
 
-import com.opensymphony.xwork2.Action;
+import org.apache.commons.lang.StringUtils;
 
-public class LoginAction implements Action {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userId;
 	private String password;
 	
+	public void validate() {
+		if(StringUtils.isEmpty(getUserId())) {
+			addFieldError("userId", "user ID cannot be blank.");
+		}
+		if (StringUtils.isEmpty(getPassword())) {
+			addFieldError("password",	"Password cannot be blank.");
+		}
+	} 
+
 	
 	public String execute() {
 		
