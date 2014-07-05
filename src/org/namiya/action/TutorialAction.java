@@ -14,7 +14,17 @@ public class TutorialAction {
 		return "success";
 		
 	}
+	
+	public String getTutorial(){
+		System.out.println("getTutorial() method called");
+		return "success";
+	}
 
+	public String addTutorial(){
+		System.out.println("addTutorial() method called");
+		return "success";
+	}
+	
 	public String getBestTutorialSite() {
 		return bestTutorialSite;
 	}

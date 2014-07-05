@@ -7,7 +7,7 @@
 	<include file="login.xml"/>
 	
     <package name="default" namespace="/tutorials" extends="struts-default">
-    	<action name="getTutorial" class="org.namiya.action.TutorialAction">
+    	<action name="*Tutorial" class="org.namiya.action.TutorialAction" method="{1}Tutorial">
     		<result name="success">/success.jsp</result>
     		<result name="login">/error.jsp</result>
     	</action>
