@@ -13,6 +13,11 @@
     	</action>
     </package>
     
-
+    <!-- dummy action -->
+    <package name="search" namespace="/" extends="struts-default">
+    	<action name="search*">
+    		<result>/search{1}.jsp</result>
+    	</action>
+    </package>	 
     
 </struts> 
