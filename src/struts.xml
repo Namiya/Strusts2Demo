@@ -4,10 +4,15 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<include file="login.xml"/>
+	
     <package name="default" namespace="/tutorials" extends="struts-default">
     	<action name="getTutorial" class="org.namiya.action.TutorialAction">
     		<result name="success">/success.jsp</result>
-    		<result name="failure">/error.jsp</result>
+    		<result name="login">/error.jsp</result>
     	</action>
     </package>
+    
+
+    
 </struts> 
