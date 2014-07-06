@@ -1,50 +1,52 @@
 package org.namiya.action;
 
 import org.apache.commons.lang.StringUtils;
+import org.namiya.model.User;
+import org.namiya.service.LoginService;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String userId;
-	private String password;
+	private User user = new User();
 	
 	public void validate() {
-		if(StringUtils.isEmpty(getUserId())) {
+		if(StringUtils.isEmpty(user.getUserId())) {
 			addFieldError("userId", "user ID cannot be blank.");
 		}
-		if (StringUtils.isEmpty(getPassword())) {
+		if (StringUtils.isEmpty(user.getPassword())) {
 			addFieldError("password",	"Password cannot be blank.");
 		}
 	} 
 
 	
 	public String execute() {
-		
-		if (getUserId().equals("userId") && getPassword().equals("password")) {
+		LoginService loginService = new LoginService();
+		if (loginService.verifyLogin(user)) {
 			return SUCCESS;
 		}
 		return LOGIN;
+}
+
+	public User getUser() {
+		return user;
 	}
 
-	public String getUserId() {
-		return userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	@Override
+	public User getModel() {
+		
+		return user;
 	}
 
 
